@@ -54,7 +54,7 @@ export default function AnimatedLandingPage() {
               <div className="absolute inset-0 bg-[#e1bb80]/20 rounded-full blur-xl" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <Image
-                  src="/flaticon.ico"
+                  src="/favicon.ico"
                   alt="PiggyTrack Icon"
                   width={96}
                   height={96}
