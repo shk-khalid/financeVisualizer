@@ -22,3 +22,52 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Failed to create transaction' }, { status: 500 });
   }
 }
+
+export async function DELETE(request: Request) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get('id');
+    
+    if (!id) {
+      return NextResponse.json({ error: 'Transaction ID is required' }, { status: 400 });
+    }
+
+    await connectDB();
+    const transaction = await Transaction.findByIdAndDelete(id);
+    
+    if (!transaction) {
+      return NextResponse.json({ error: 'Transaction not found' }, { status: 404 });
+    }
+
+    return NextResponse.json({ message: 'Transaction deleted successfully' });
+  } catch (error) {
+    return NextResponse.json({ error: 'Failed to delete transaction' }, { status: 500 });
+  }
+}
+
+export async function PUT(request: Request) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get('id');
+    const body = await request.json();
+    
+    if (!id) {
+      return NextResponse.json({ error: 'Transaction ID is required' }, { status: 400 });
+    }
+
+    await connectDB();
+    const transaction = await Transaction.findByIdAndUpdate(
+      id,
+      body,
+      { new: true, runValidators: true }
+    );
+    
+    if (!transaction) {
+      return NextResponse.json({ error: 'Transaction not found' }, { status: 404 });
+    }
+
+    return NextResponse.json(transaction);
+  } catch (error) {
+    return NextResponse.json({ error: 'Failed to update transaction' }, { status: 500 });
+  }
+}
