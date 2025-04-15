@@ -55,7 +55,7 @@ export default function AnimatedLandingPage() {
               <div className="absolute inset-0 flex items-center justify-center">
                 <Image
                   src="/flaticon.ico"
-                  alt="Finance Visualizer Icon"
+                  alt="PiggyTrack Icon"
                   width={96}
                   height={96}
                   className="relative z-10 w-20 h-20 sm:w-32 sm:h-32 transition-transform duration-300 hover:scale-105"
@@ -68,7 +68,7 @@ export default function AnimatedLandingPage() {
           
           <motion.div className="space-y-4 sm:space-y-6" variants={itemVariants}>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#352208] drop-shadow-lg">
-              Personal Finance Visualizer
+              PiggyTrack
             </h1>
             <p className="text-lg sm:text-xl lg:text-2xl text-[#7a5f38] max-w-2xl mx-auto leading-relaxed">
               Track, analyze, and visualize your financial journey with powerful insights and beautiful charts.
@@ -81,7 +81,7 @@ export default function AnimatedLandingPage() {
           >
             <Link 
               href="/transactions" 
-              aria-label="Get started with Finance Visualizer"
+              aria-label="Get started with PiggyTrack"
               className="focus:outline-none focus:ring-2 focus:ring-[#574120] focus:ring-offset-2 rounded-lg transition-all duration-200"
             >
               <Button 
@@ -191,7 +191,7 @@ export default function AnimatedLandingPage() {
           <div className="text-center mt-8 sm:mt-12 lg:mt-16">
             <Link 
               href="/transactions" 
-              aria-label="Start managing your finances"
+              aria-label="Start managing your finances with PiggyTrack"
               className="focus:outline-none focus:ring-2 focus:ring-[#574120] focus:ring-offset-2 rounded-lg transition-all duration-200"
             >
               <Button 

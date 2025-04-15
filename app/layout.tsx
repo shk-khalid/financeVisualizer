@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Personal Finance Visualizer',
+  title: 'PiggyTrack',
   description: 'Track your expenses, set budgets, and visualize your personal finances with ease.',
   icons: {
     icon: "/favicon.ico",

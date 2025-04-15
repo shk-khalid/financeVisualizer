@@ -11,10 +11,10 @@ export default function TransactionsPage() {
       <div className="mx-auto max-w-screen-lg px-4">
         <header className="mb-10 text-center">
           <h1 className="text-5xl font-extrabold text-[#333]">
-            Financial Dashboard
+            PiggyTrack Dashboard
           </h1>
           <p className="mt-4 text-lg text-[#555] max-w-2xl mx-auto">
-            Welcome to your Financial Dashboard! Here you can manage your transactions, 
+            Welcome to your PiggyTrack Dashboard! Here you can manage your transactions, 
             view monthly expenses, analyze category distribution, and track recent 
             activity at a glance. Use the tools below to add new transactions, review 
             detailed summaries, and gain insights into your spending habits to optimize 
