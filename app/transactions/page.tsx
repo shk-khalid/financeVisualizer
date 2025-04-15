@@ -1,8 +1,8 @@
-import TransactionForm from '@/components/TransactionForm';
-import TransactionList from '@/components/TransactionList';
-import MonthlyExpensesChart from '@/components/MonthlyExpensesChart';
-import CategoryPieChart from '@/components/CategoryPieChart';
-import DashboardSummary from '@/components/DashboardSummary';
+import TransactionForm from '@/components/transactions/TransactionForm';
+import TransactionList from '@/components/transactions/TransactionList';
+import MonthlyExpensesChart from '@/components/transactions/MonthlyExpensesChart';
+import CategoryPieChart from '@/components/transactions/CategoryPieChart';
+import DashboardSummary from '@/components/transactions/DashboardSummary';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function TransactionsPage() {

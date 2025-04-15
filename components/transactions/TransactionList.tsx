@@ -29,7 +29,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { motion, AnimatePresence } from 'framer-motion';
-import TransactionForm from './TransactionForm';
+import TransactionForm from '@/components/transactions/TransactionForm';
 import { useTransactions } from '@/hooks/useTransactions';
 import type { Transaction } from '@/lib/models/Transaction';
 

@@ -2,85 +2,155 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: 38 96% 88%;
-  --foreground: 34 94% 12%;
-  
-  --card: 38 96% 88%;
-  --card-foreground: 34 94% 12%;
-  
-  --popover: 38 96% 88%;
-  --popover-foreground: 34 94% 12%;
-  
-  --primary: 34 33% 35%;
-  --primary-foreground: 38 96% 88%;
-  
-  --secondary: 34 33% 45%;
-  --secondary-foreground: 38 96% 88%;
-  
-  --muted: 34 33% 96%;
-  --muted-foreground: 34 33% 45%;
-  
-  --accent: 34 33% 45%;
-  --accent-foreground: 38 96% 88%;
-  
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 38 96% 88%;
-  
-  --border: 34 33% 35%;
-  --input: 34 33% 35%;
-  --ring: 34 33% 35%;
-  
-  --chart-1: 38 45% 88%;
-  --chart-2: 34 33% 58%;
-  --chart-3: 34 33% 45%;
-  --chart-4: 34 33% 35%;
-  --chart-5: 34 94% 12%;
-  
-  --radius: 0.5rem;
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
 }
 
-.dark {
-  --background: 34 94% 12%;
-  --foreground: 38 96% 88%;
-  
-  --card: 34 94% 12%;
-  --card-foreground: 38 96% 88%;
-  
-  --popover: 34 94% 12%;
-  --popover-foreground: 38 96% 88%;
-  
-  --primary: 38 45% 88%;
-  --primary-foreground: 34 94% 12%;
-  
-  --secondary: 34 33% 45%;
-  --secondary-foreground: 38 96% 88%;
-  
-  --muted: 34 33% 25%;
-  --muted-foreground: 34 33% 75%;
-  
-  --accent: 34 33% 45%;
-  --accent-foreground: 38 96% 88%;
-  
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 38 96% 88%;
-  
-  --border: 34 33% 45%;
-  --input: 34 33% 45%;
-  --ring: 34 33% 75%;
-  
-  --chart-1: 38 45% 88%;
-  --chart-2: 34 33% 58%;
-  --chart-3: 34 33% 45%;
-  --chart-4: 34 33% 35%;
-  --chart-5: 34 94% 12%;
+::-webkit-scrollbar-track {
+  background: #e1bb80;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #574120;
+  border-radius: 5px;
+  border: 2px solid #e1bb80;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #352208;
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #574120 #e1bb80;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base Styles */
+@layer base {
+
+  :root {
+    --background: 38 96% 88%;
+    --foreground: 34 94% 12%;
+
+    --card: 38 96% 88%;
+    --card-foreground: 34 94% 12%;
+
+    --popover: 38 96% 88%;
+    --popover-foreground: 34 94% 12%;
+
+    --primary: 34 33% 35%;
+    --primary-foreground: 38 96% 88%;
+
+    --secondary: 34 33% 45%;
+    --secondary-foreground: 38 96% 88%;
+
+    --muted: 34 33% 96%;
+    --muted-foreground: 34 33% 45%;
+
+    --accent: 34 33% 45%;
+    --accent-foreground: 38 96% 88%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 38 96% 88%;
+
+    --border: 34 33% 35%;
+    --input: 34 33% 35%;
+    --ring: 34 33% 35%;
+
+    --chart-1: 38 45% 88%;
+    --chart-2: 34 33% 58%;
+    --chart-3: 34 33% 45%;
+    --chart-4: 34 33% 35%;
+    --chart-5: 34 94% 12%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 34 94% 12%;
+    --foreground: 38 96% 88%;
+
+    --card: 34 94% 12%;
+    --card-foreground: 38 96% 88%;
+
+    --popover: 34 94% 12%;
+    --popover-foreground: 38 96% 88%;
+
+    --primary: 38 45% 88%;
+    --primary-foreground: 34 94% 12%;
+
+    --secondary: 34 33% 45%;
+    --secondary-foreground: 38 96% 88%;
+
+    --muted: 34 33% 25%;
+    --muted-foreground: 34 33% 75%;
+
+    --accent: 34 33% 45%;
+    --accent-foreground: 38 96% 88%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 38 96% 88%;
+
+    --border: 34 33% 45%;
+    --input: 34 33% 45%;
+    --ring: 34 33% 75%;
+
+    --chart-1: 38 45% 88%;
+    --chart-2: 34 33% 58%;
+    --chart-3: 34 33% 45%;
+    --chart-4: 34 33% 35%;
+    --chart-5: 34 94% 12%;
+  }
 }
 
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300/80 dark:bg-gray-700/80 rounded-full hover:bg-gray-400 dark:hover:bg-gray-600 transition-colors duration-200;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #4b5563 #1f2937;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #4b5563;
+    /* thumb color */
+    border-radius: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background-color: #1f2937;
+    /* track color */
   }
 }
