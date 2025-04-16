@@ -5,18 +5,13 @@ import { CATEGORIES } from '@/lib/models/Transaction';
 import { useTransactions } from '@/hooks/useTransactions';
 import { motion } from 'framer-motion';
 import { TrendingUp, TrendingDown, DollarSign } from 'lucide-react';
+import { DashboardCardsSkeleton } from '@/components/ui/loading-state';
 
 export default function DashboardSummary() {
   const { transactions, isLoading } = useTransactions();
 
   if (isLoading) {
-    return (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {[...Array(3)].map((_, i) => (
-          <div key={i} className="h-32 bg-[#e1bb80]/20 animate-pulse rounded-lg"></div>
-        ))}
-      </div>
-    );
+    return <DashboardCardsSkeleton cards={3} />;
   }
 
   const totalExpenses = transactions.reduce((sum, t) => sum + t.amount, 0);

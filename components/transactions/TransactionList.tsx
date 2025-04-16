@@ -10,7 +10,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
-import { Pencil, Trash2 } from 'lucide-react';
+import { Pencil, Trash2, PlusCircle, Receipt } from 'lucide-react';
 import { format } from 'date-fns';
 import {
   Dialog,
@@ -32,15 +32,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import TransactionForm from '@/components/transactions/TransactionForm';
 import { useTransactions } from '@/hooks/useTransactions';
 import type { Transaction } from '@/lib/models/Transaction';
+import { TableRowsSkeleton } from '@/components/ui/loading-state';
+import { useMutation } from '@/contexts/MutationContext';
 
 export default function TransactionList() {
   const { transactions, isLoading, mutate } = useTransactions();
+  const { startMutation, endMutation, triggerRevalidation } = useMutation();
   const [editingTransaction, setEditingTransaction] = useState<Transaction | null>(null);
   const [deletingTransaction, setDeletingTransaction] = useState<Transaction | null>(null);
 
   const handleDelete = async () => {
     if (!deletingTransaction) return;
 
+    startMutation();
     try {
       const response = await fetch(`/api/transactions?id=${deletingTransaction._id}`, {
         method: 'DELETE',
@@ -48,9 +52,12 @@ export default function TransactionList() {
 
       if (!response.ok) throw new Error('Failed to delete transaction');
       
-      await mutate();
+      await triggerRevalidation();
+      
+      endMutation(true);
     } catch (error) {
       console.error('Error deleting transaction:', error);
+      endMutation(false);
     } finally {
       setDeletingTransaction(null);
     }
@@ -58,17 +65,27 @@ export default function TransactionList() {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center py-8">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#574120]"></div>
+      <div className="p-4">
+        <TableRowsSkeleton rows={5} columns={5} />
       </div>
     );
   }
 
   if (transactions.length === 0) {
     return (
-      <div className="text-center py-12 bg-[#e1bb80]/10 rounded-lg">
+      <div className="h-[300px] flex flex-col items-center justify-center text-center p-8 bg-[#e1bb80]/10 rounded-lg">
+        <Receipt className="h-16 w-16 text-[#bf9c68] mb-4" />
         <h3 className="text-xl font-semibold text-[#574120] mb-2">No Transactions Yet</h3>
-        <p className="text-[#7a5f38]">Start by adding your first transaction above.</p>
+        <p className="text-[#7a5f38] mb-4">
+          Track your expenses by adding transactions. You'll be able to see spending patterns and insights over time.
+        </p>
+        <Button 
+          className="bg-[#574120] hover:bg-[#352208] text-white mt-2 flex items-center"
+          onClick={() => document.getElementById('transaction-form-section')?.scrollIntoView({ behavior: 'smooth' })}
+        >
+          <PlusCircle className="mr-2 h-4 w-4" />
+          Add Your First Transaction
+        </Button>
       </div>
     );
   }
