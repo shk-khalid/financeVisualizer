@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import connectDB from '@/lib/mongodb';
+import connectDB from '@/lib/utils/mongodb';
 import Budget from '@/lib/models/Budget';
 import { format } from 'date-fns';
 

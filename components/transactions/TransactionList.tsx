@@ -92,7 +92,7 @@ export default function TransactionList() {
 
   return (
     <>
-      <div className="overflow-x-auto rounded-lg border border-[#9c7e50] bg-white/50 backdrop-blur-sm">
+      <div className="overflow-x-auto rounded-lg border border-[#9c7e50] bg-[#f5e1c4]/50 backdrop-blur-sm">
         <Table>
           <TableHeader>
             <TableRow className="border-b border-[#9c7e50] bg-[#e1bb80]/20">
@@ -111,7 +111,7 @@ export default function TransactionList() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="border-b border-[#bf9c68] hover:bg-[#e1bb80]/10 transition-colors"
+                  className="border-b border-[#bf9c68] hover:bg-[#e1bb80]/20 transition-colors"
                 >
                   <TableCell className="text-[#7a5f38] font-medium">
                     {format(new Date(transaction.date), 'PP')}
