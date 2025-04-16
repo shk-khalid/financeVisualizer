@@ -100,7 +100,7 @@ Want to contribute? Follow these steps:
 1. **Fork** the repository to your GitHub account.
 2. **Clone** your forked repo locally:
    ```bash
-   git clone https://github.com/shk-khalid/financeVisualizer.git
+   git clone https://github.com/shk-khalid/piggyTrack.git
    ```
 3. **Create a new branch** for your feature or bug fix:
    ```bash
